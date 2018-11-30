@@ -1,8 +1,8 @@
 <template>
   <div>
-    <transition-group name="slide" tag="div">
-      <div v-for="number in [currentNumber]" :key="number">
-        <div id="hero" :style="{'background-image': `url(${currentImage})`}">
+    <fade-transition mode="out-in" group>
+      <div class="hero" v-for="(image, key) in images" :key="`slide-${key}`" v-if="key == current">
+        <div :style="{'background-image': `url(${image})`}">
           <div class="text:center container">
             <h1>G20 Repository of Digital Policies</h1>
             <p class="width:875 text:center" style="margin: 0 auto">"Strengthen the exchange of information and experiences to support improving access, adoption, and effective use of digital technologies."</p>
@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-    </transition-group>
+    </fade-transition>
   </div>
 </template>
 
@@ -27,12 +27,12 @@ export default {
         '/assets/images/slider/G20-3.jpg',
         '/assets/images/slider/Skills-for-the-Future-of-Work.jpg',
       ],
-      currentNumber: 0,
+      current: 0,
       timer: null
     }
   },
   mounted () {
-    // this.start()
+    this.start()
   },
   methods: {
     start () {
@@ -43,11 +43,15 @@ export default {
       this.timer = null
     },
     next () {
-      this.currentNumber += 1
+      if (this.current < this.images.length - 1) {
+        this.current += 1
+      } else {
+        this.current = 0
+      }
     },
-    prev () {
-      this.currentNumber -= 1
-    }
+    // prev () {
+    //   this.current -= 1
+    // }
   },
   computed: {
     currentImage () {
@@ -58,6 +62,13 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .1s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 .slide-leave-active,
 .slide-enter-active {
   transition: 1s;
@@ -68,5 +79,4 @@ export default {
 .slide-leave-to {
   transform: translate(-100%, 0);
 }
-
 </style>

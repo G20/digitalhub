@@ -1,29 +1,29 @@
 /* HERO
 ------------------ */
-#hero {
+.hero {
   color: white;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  width: 100%;
+  // background-repeat: no-repeat;
+  // background-attachment: scroll;
+  // background-position: center;
+  // width: 100%;
 }
 
-#hero h1 {
+.hero h1 {
   font-weight: 100;
   font-size: 2.2em;
 }
 
-#hero p {
+.hero p {
   font-size: 1.2em;
   font-style: italic;
   font-weight: 300;
 }
 
-#hero h4 {
+.hero h4 {
   font-weight: 300;
   font-size: 1.4em;
 }
 
-#hero > div {
+.hero > div {
   padding: 20px;
 }
