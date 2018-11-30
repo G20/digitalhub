@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fade-transition mode="out-in" group>
+    <fade-transition mode="out-in" tag="div" group>
       <div class="hero" v-for="(image, key) in images" :key="`slide-${key}`" v-if="key == current">
         <div :style="{'background-image': `url(${image})`}">
           <div class="text:center container">
