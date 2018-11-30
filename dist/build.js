@@ -1999,6 +1999,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -38041,24 +38046,56 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticStyle: { background: "white" } }, [
-    _c("div", { staticClass: "container flex row align:center pad-y:3" }, [
-      _c(
-        "div",
-        { staticClass: "fit" },
-        [
-          _c("router-link", { attrs: { to: { name: "projects" } } }, [
-            _c("img", {
-              attrs: {
-                id: "logo-main",
-                src: "/assets/images/logo.png",
-                alt: "G20"
-              }
-            })
-          ])
-        ],
-        1
-      )
-    ])
+    _c(
+      "div",
+      {
+        staticClass: "container flex row align:center pad-y:3",
+        attrs: { id: "header-menu" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "fit" },
+          [
+            _c("router-link", { attrs: { to: { name: "projects" } } }, [
+              _c("img", {
+                attrs: {
+                  id: "logo-main",
+                  src: "/assets/images/logo.png",
+                  alt: "G20"
+                }
+              })
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "nav",
+          { staticClass: "flex column" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "mar-lef:10", attrs: { to: { name: "detf" } } },
+              [_vm._v("DETF")]
+            ),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              { staticClass: "mar-lef:10", attrs: { to: { name: "links" } } },
+              [_vm._v("LINKS")]
+            ),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              { staticClass: "mar-lef:10", attrs: { to: { name: "about" } } },
+              [_vm._v("ABOUT")]
+            )
+          ],
+          1
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []
