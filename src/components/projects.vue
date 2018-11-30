@@ -2,7 +2,7 @@
   <div id="categories" class="mar-top:4">
     <modal v-if="selected" :project.sync="selected" />
     <div>
-      <h2>List of projects {{ data.length }}</h2>
+      <h2>List of projects</h2>
       <hr color="#E9E9E9">
       <div id="header-categories" class="flex row mar-bot:7 mar-top:5">
         <div class="fit">
