@@ -1,8 +1,8 @@
 <template>
-  <div style="min-height: 300px;">
+  <div>
     <transition-group name="slide" tag="div">
       <div v-for="number in [currentNumber]" :key="number">
-        <div id="hero" class="pad-y:4" :style="{'background-image': `url(${currentImage})`}">
+        <div id="hero" :style="{'background-image': `url(${currentImage})`}">
           <div class="text:center container">
             <h1>G20 Repository of Digital Policies</h1>
             <p class="width:875 text:center" style="margin: 0 auto">"Strengthen the exchange of information and experiences to support improving access, adoption, and effective use of digital technologies."</p>
@@ -32,7 +32,7 @@ export default {
     }
   },
   mounted () {
-    this.start()
+    // this.start()
   },
   methods: {
     start () {

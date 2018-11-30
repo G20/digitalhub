@@ -1,0 +1,74 @@
+/* all mobile (smartphone, tablets) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+        padding: 20px;
+    }
+    #logo-main {
+        height: 100px !important;
+        width: auto !important;
+    }
+
+    #hero p {
+        max-width: 90% !important;
+    }
+
+    #categories div.box {
+        margin-top: 40px;
+    }
+
+    #header-categories {
+        margin-bottom: 1em !important;
+    }
+
+    #filters-categories {
+        flex-direction: column !important;
+    }
+
+    #filters-categories >  div {
+        margin: 0;
+        margin-bottom: 1em !important;
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    #filters-categories button {
+        width: 100%;
+    }
+}
+  
+/* old smartphones */
+@media (max-width: 347px) {
+    #categories div.box {
+        width: 100% !important;
+    }
+}
+  
+/* smartphones */
+@media (min-width: 321px) and (max-width: 446px) {
+
+}
+  
+/* phablets */
+@media (max-width: 660px) {
+
+}
+  
+/* tablets */
+@media (min-width: 415px) and (max-width: 1024px) {
+
+}
+  
+@media (min-width: 610px) and (max-width: 1024px) {
+
+}
+  
+/* landscape smartphones */
+@media (max-width: 768px) and (orientation: landscape) {
+
+}
+  
+/* desktop */
+@media (min-width: 1025px) {
+}
+  

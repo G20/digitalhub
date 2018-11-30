@@ -5,7 +5,6 @@
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
-  position: absolute;
   width: 100%;
 }
 
@@ -23,4 +22,8 @@
 #hero h4 {
   font-weight: 300;
   font-size: 1.4em;
+}
+
+#hero > div {
+  padding: 20px;
 }

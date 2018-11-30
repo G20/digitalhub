@@ -10,6 +10,11 @@ html, body {
   font-weight: 300;
 }
 
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   max-width: 1024px;
   margin: 0 auto;

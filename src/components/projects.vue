@@ -1,10 +1,10 @@
 <template>
-  <div id="categories" class="mar-top:6">
+  <div id="categories" class="mar-top:4">
     <modal v-if="selected" :project.sync="selected" />
     <div>
       <h2>List of projects</h2>
       <hr color="#E9E9E9">
-      <div class="flex row mar-bot:7 mar-top:5">
+      <div id="header-categories" class="flex row mar-bot:7 mar-top:5">
         <div class="fit">
           <h4>Filter By Category</h4>
         </div>
@@ -14,7 +14,7 @@
       </div>
 
       <!-- Categories -->
-      <div class="flex row justify:between">
+      <div class="flex wrap row justify:between">
         <div class="box cursor:pointer" @click="byCategory(SKILLS_FOR_THE_FUTURE_OF_WORK)" :class="{'selected': SKILLS_FOR_THE_FUTURE_OF_WORK === category}">
           <div>
             <svg width="30px" height="32px" viewBox="0 0 30 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.749"><g id="G20_-_Digital_Society_Platform" transform="translate(-174.000000, -473.000000)" fill="#0072BC"><g id="Group-51"><path d="M203.8635,480.349 C203.8635,480.349 203.8635,499.375 203.8635,499.375 C203.8635,502.2619 201.4697,504.6238 198.544,504.6238 C198.544,504.6238 188.8359,504.6238 188.8359,504.6238 C187.3996,504.6238 186.0431,504.0596 185.0457,503.0623 C185.0457,503.0623 174.6062,492.591 174.6062,492.591 C174.6062,492.591 176.2818,490.977 176.335,490.951 C176.6276,490.702 176.9866,490.57 177.3856,490.57 C177.6782,490.57 177.9442,490.649 178.1835,490.78 C178.2367,490.794 183.9153,494.008 183.9153,494.008 C183.9153,494.008 183.9153,478.38 183.9153,478.38 C183.9153,477.291 184.8063,476.412 185.9101,476.412 C187.0139,476.412 187.9049,477.291 187.9049,478.38 C187.9049,478.38 187.9049,487.566 187.9049,487.566 C187.9049,487.566 189.2348,487.566 189.2348,487.566 C189.2348,487.566 189.2348,475.1 189.2348,475.1 C189.2348,474.011 190.1258,473.132 191.2296,473.132 C192.3334,473.132 193.2245,474.011 193.2245,475.1 C193.2245,475.1 193.2245,487.566 193.2245,487.566 C193.2245,487.566 194.5543,487.566 194.5543,487.566 C194.5543,487.566 194.5543,476.412 194.5543,476.412 C194.5543,475.323 195.4453,474.444 196.5491,474.444 C197.6529,474.444 198.544,475.323 198.544,476.412 C198.544,476.412 198.544,487.566 198.544,487.566 C198.544,487.566 199.8738,487.566 199.8738,487.566 C199.8738,487.566 199.8738,480.349 199.8738,480.349 C199.8738,479.26 200.7649,478.38 201.8687,478.38 C202.9725,478.38 203.8635,479.26 203.8635,480.349" id="Fill-45"></path></g></g></g></svg>
@@ -55,7 +55,7 @@
     </div>
 
     <!-- Search -->
-    <div class="flex row align:start mar-y:3">
+    <div id="filters-categories" class="flex row align:start mar-y:3">
       <div class="fit mar-rig:3">
         <div class="mar-bot:1">
           <h4>Title</h4>
@@ -115,7 +115,7 @@
         name="projects"
         :list="projects"
         :per="5">
-      <table style="width: 100%;text-align: left;" cellspanig="0" cellpadding="0">
+      <table style="width: 100%;text-align: left;min-width: 870px;" cellspanig="0" cellpadding="0">
         <tr>
           <th class="width:225">
             <span @click="sort(COLUMNS.COUNTRY)" class="cursor:pointer">
@@ -191,6 +191,7 @@ import multiselect from 'vue-multiselect'
 import _ from 'lodash'
 import modal from './modal.vue'
 import moment from 'moment'
+import axios from 'axios'
 import {
   OTHER,
 
@@ -582,6 +583,14 @@ export default {
       sortKey: COLUMNS.NAME,
       sortDir: SORT_DIRECTIONS.ASC
     }
+  },
+  created () {
+    axios.get('https://www.itu.int/net4/wsis/stocktaking/en/api/digitalpolicies/get')
+      .then(response => (console.log(response.data)))
+      .catch(err => {
+        // endpoint errror
+        console.log(err)
+      })
   },
   computed: {
     options () {
