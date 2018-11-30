@@ -114,7 +114,9 @@
       <paginate
         name="projects"
         :list="projects"
-        :per="5">
+        :per="5"
+        tag="div"
+        style="overflow-x: auto;">
       <table style="width: 100%;text-align: left;min-width: 870px;" cellspanig="0" cellpadding="0">
         <tr>
           <th class="width:225">

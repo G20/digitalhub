@@ -2413,6 +2413,8 @@ var _site_data_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webp
 //
 //
 //
+//
+//
 
 
 
@@ -38100,7 +38102,8 @@ var render = function() {
             "div",
             {
               staticClass: "flex row scrollbar",
-              staticStyle: { overflow: "auto", height: "80vh" }
+              staticStyle: { overflow: "auto", height: "80vh" },
+              attrs: { id: "modal-inner-content" }
             },
             [
               _c(
@@ -39619,7 +39622,15 @@ var render = function() {
             [
               _c(
                 "paginate",
-                { attrs: { name: "projects", list: _vm.projects, per: 5 } },
+                {
+                  staticStyle: { "overflow-x": "auto" },
+                  attrs: {
+                    name: "projects",
+                    list: _vm.projects,
+                    per: 5,
+                    tag: "div"
+                  }
+                },
                 [
                   _c(
                     "table",

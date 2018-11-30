@@ -6,7 +6,7 @@
           <h3 class="pad:2 mar:0">Project's Information</h3>
           <span @click="close" class="close cursor:pointer"></span>
           <hr color="#E9E9E9" class="mar:0">
-          <div class="flex row scrollbar" style="overflow: auto; height: 80vh">
+          <div id="modal-inner-content" class="flex row scrollbar" style="overflow: auto; height: 80vh">
             <div style="flex: 2; border-right: 2px #E9E9E9 solid;">
               <div class="mar:3">
                 <div class="category">{{ project.category }}</div>

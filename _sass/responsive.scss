@@ -35,6 +35,16 @@
     #filters-categories button {
         width: 100%;
     }
+
+    .modal-container {
+        width: 90% !important;
+        margin: 5% !important;
+        word-break: break-all;
+    }
+
+    #modal-inner-content {
+        flex-direction: column !important;
+    }
 }
   
 /* old smartphones */
