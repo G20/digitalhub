@@ -1999,11 +1999,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -37759,7 +37754,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", [
         _vm._v("\n    The areas covered are:\n    "),
-        _c("ul", [
+        _c("ul", { staticClass: "pad:4" }, [
           _c("li", [_vm._v("Skills for the future of work")]),
           _vm._v(" "),
           _c("li", [_vm._v("Digital inclusion")]),
@@ -38072,7 +38067,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "nav",
-          { staticClass: "flex column" },
+          { staticClass: "flex row" },
           [
             _c(
               "router-link",

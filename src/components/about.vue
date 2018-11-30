@@ -7,7 +7,7 @@
     </p>
     <div>
       The areas covered are:
-      <ul>
+      <ul class="pad:4">
         <li>Skills for the future of work</li>
         <li>Digital inclusion</li>
         <li>Digital infrastructure</li>

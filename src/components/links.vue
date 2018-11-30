@@ -6,16 +6,11 @@
           <img id="logo-main" src="/assets/images/logo.png" alt="G20">
         </router-link>
       </div>
-      <nav class="flex column">
+      <nav class="flex row">
         <router-link :to="{ name: 'detf' }" class="mar-lef:10">DETF</router-link>
         <router-link :to="{ name: 'links' }" class="mar-lef:10">LINKS</router-link>
         <router-link :to="{ name: 'about' }" class="mar-lef:10">ABOUT</router-link>
-      </nav>      
-      <!-- <nav class="flex row">
-        <router-link :to="{ name: 'detf' }" class="mar-lef:10">DETF</router-link>
-        <router-link :to="{ name: 'links' }" class="mar-lef:10">LINKS</router-link>
-        <router-link :to="{ name: 'about' }" class="mar-lef:10">ABOUT</router-link>
-      </nav> -->
+      </nav>
     </div>
   </div>
 </template>
