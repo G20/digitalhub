@@ -45,6 +45,19 @@
     #modal-inner-content {
         flex-direction: column !important;
     }
+
+    #header-menu {
+        flex-direction: column !important;
+    }
+
+    #header-menu > nav {
+        margin-top: 1em;
+        flex-direction: row !important;
+    }
+
+    #header-menu > nav > a {
+        margin: 0 2em !important;
+    }
 }
   
 /* old smartphones */
