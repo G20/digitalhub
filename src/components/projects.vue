@@ -112,11 +112,11 @@
     <!-- Projects list -->
     <paginate
       name="projects"
-      :list="data"
+      :list="matched"
       :per="5"
       tag="div"
       style="overflow-x: auto;">
-      <div v-if="projects.length" id="projects">
+      <div v-if="matched.length" id="projects">
         <table style="width: 100%;text-align: left;min-width: 870px;" cellspanig="0" cellpadding="0">
           <tr>
             <th class="width:225">
@@ -148,7 +148,7 @@
               </span>
             </th>
           </tr>
-          <tr v-for="(project, key) in projects" :key="key" valign="top">
+          <tr v-for="(project, key) in projectsList" :key="key" valign="top">
             <td>
               <div class="flex row align:center mar-rig:1">
                 <span>
@@ -184,7 +184,7 @@
       </div>
     </paginate>
     <paginate-links
-      v-show="projects.length"
+      v-show="matched.length"
       :show-step-links="true"
       for="projects"
       :async="true"
@@ -236,6 +236,8 @@ export default {
       selected: null,
       paginate: ['projects'],
       data: [],
+      filtered: [],
+      searching: false,
       tags: [],
       taxonomies: {
         [SKILLS_FOR_THE_FUTURE_OF_WORK]: [
@@ -603,6 +605,9 @@ export default {
       })
   },
   computed: {
+    projectsList () {
+      return this.paginated('projects')
+    },
     options () {
       // no category selected
       if (!this.category) {
@@ -610,6 +615,9 @@ export default {
       }
 
       return _.union(this.taxonomies[this.category], this.taxonomies.globals)
+    },
+    matched () {
+      return this.searching ? this.filtered : this.data
     },
     projects () {
       // @TODO: add shuffle _.shuffle(this.paginated('projects'))
@@ -646,13 +654,15 @@ export default {
       this.title = ''
       this.country = []
       this.tags = []
-      this.search()
+      this.searching = false
     },
     byCategory (category) {
       this.category = category
       this.search()
     },
     search () {
+      this.searching = true
+
       // text filters
       if (this.title || this.tags.length || this.country.length) {
         const match = project => {
@@ -668,14 +678,12 @@ export default {
           )
         }
 
-        this.projects = this.data.filter(match)
-      } else {
-        this.projects = this.data
+        this.filtered = this.data.filter(match)
       }
 
       // category selected?
       if (this.category) {
-        this.projects = this.projects.filter(project => project.category.toLowerCase().indexOf(this.category.toLowerCase()) !== -1)
+        this.filtered = this.projects.filter(project => project.category.toLowerCase().indexOf(this.category.toLowerCase()) !== -1)
       }
     }
   }
