@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fade-transition mode="out-in" group>
+    <transition name="slide-left" mode="out-in" group>
       <div class="hero" v-for="(image, key) in images" :key="`slide-${key}`" v-if="key == current">
         <div :style="{'background-image': `url(${image})`}">
           <div class="text:center container">
@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-    </fade-transition>
+    </transition>
   </div>
 </template>
 
@@ -62,21 +62,7 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .1s ease;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
-.slide-leave-active,
-.slide-enter-active {
-  transition: 1s;
-}
-.slide-enter {
-  transform: translate(100%, 0);
-}
-.slide-leave-to {
-  transform: translate(-100%, 0);
-}
+.slide-left-enter-active{ transition:all .3s ease-in }
+.slide-left-enter{ transform: translateX(10px) }
+.slide-left-leave, .slide-left-leave-to{ transform: translateX(10px) }
 </style>

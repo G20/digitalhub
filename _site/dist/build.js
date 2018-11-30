@@ -37981,8 +37981,8 @@ var render = function() {
     "div",
     [
       _c(
-        "fade-transition",
-        { attrs: { mode: "out-in", group: "" } },
+        "transition",
+        { attrs: { name: "slide-left", mode: "out-in", group: "" } },
         _vm._l(_vm.images, function(image, key) {
           return key == _vm.current
             ? _c("div", { key: "slide-" + key, staticClass: "hero" }, [
