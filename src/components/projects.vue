@@ -149,7 +149,7 @@
               </span>
             </th>
           </tr>
-          <tr v-for="(project, key) in paginated('projects')" valign="top">
+          <tr v-for="(project, key) in paginated('projects')" :key="key" valign="top">
             <td>
               <div class="flex row align:center mar-rig:1">
                 <span>
@@ -613,25 +613,6 @@ export default {
       }
 
       return _.union(this.taxonomies[this.category], this.taxonomies.globals)
-    },
-    projects () {
-      // @TODO: add shuffle _.shuffle(this.paginated('projects'))
-      let projects = this.paginated('projects')
-      if (!projects.length) {
-        return []
-      }
-
-      // sorting by a key?
-      if (this.sortKey) {
-		    let order = (this.sortDir === 'desc') ? -1 : 1
-        projects = projects.sort((a, b) => {
-          a = a[this.sortKey]
-          b = b[this.sortKey]
-          return (a === b ? 0 : a > b ? 1 : -1) * order
-        })
-      }
-
-      return projects
     }
   },
   methods: {
@@ -642,6 +623,17 @@ export default {
         this.sortDir = (this.sortDir === SORT_DIRECTIONS.ASC ? SORT_DIRECTIONS.DESC : SORT_DIRECTIONS.ASC)
       }
       this.sortKey = key
+
+      // sorting by a key?
+      let temp = this.filtered
+      if (this.sortKey) {
+		    let order = (this.sortDir === 'desc') ? -1 : 1
+        this.filtered = temp.sort((a, b) => {
+          a = a[this.sortKey]
+          b = b[this.sortKey]
+          return (a === b ? 0 : a > b ? 1 : -1) * order
+        })
+      }
     },
     clear () {
       this.category = null
