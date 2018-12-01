@@ -22,7 +22,7 @@
     "picasso.css": "^1.0.43",
     "vue": "^2.5.17",
     "vue-multiselect": "^2.1.0",
-    "vue-paginate": "^3.6.0",
+    "vue-paginate": "^3.5.0",
     "vue-router": "^3.0.1",
     "vue2-transitions": "^0.2.3"
   },
